@@ -8,7 +8,7 @@
 
 ## Installation <a name="installation"></a>
 
-Nothing need to be installed or updated to run this project cause this project only aims at providing a proper organized file structure.
+For more details, please refer to other branchs which are representations of each project required by Udacity.
 
 ## Project Motivation<a name="motivation"></a>
 
