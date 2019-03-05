@@ -56,7 +56,7 @@ LICENSE | --
 README.md | --
 
 
-In detail, there is . Meanwhile, data are stored in "data" folder.
+<!--In detail, there is . Meanwhile, data are stored in "data" folder.-->
 
 ## Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
