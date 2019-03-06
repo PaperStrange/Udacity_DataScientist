@@ -2,7 +2,7 @@
 
 1. [Installation](#installation)
 2. [Project Motivation](#motivation)
-3. [File Descriptions](#files)
+3. [Branch Descriptions](#branch)
 4. [To-dos](#To-dos)
 5. [Licensing, Authors, and Acknowledgements](#licensing)
 
@@ -12,11 +12,13 @@ For more details, please refer to other branchs which are representations of eac
 
 ## Project Motivation<a name="motivation"></a>
 
-This repository is a recorder for learning notes, homework and so on for any Udacity lessons i've learned so far
+This repository is a recorder for learning notes, homework and so on for any Udacity lessons i've learned so far.
 
-## File Descriptions <a name="files"></a>
+## Branch Descriptions <a name="branch"></a>
 
-For more details, please refer to other branchs which are representations of each project required by Udacity.
+Master branch mianly includes the general descriptions of this project.
+
+"develop" branch is expected to keeps the changes that haven't been checked and reviewed, including the change for better readability, the change for better visualization. The branch containing formal records for each Udacity program is commonly named by "Var1_termVar2", among which Var1 is the abbreviation name of Udacity program and Var2 indicates the specific term of this program. 
 
 ## To-dos<a name="To-dos"></a>
 
