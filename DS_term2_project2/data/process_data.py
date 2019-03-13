@@ -4,10 +4,11 @@ import sqlalchemy
 
 
 def load_data(messages_filepath, categories_filepath):
-    """Loads data from csv files
+    """Loads data from csv files.
 
-    Loads data by defined absolute path of csv files. It may cause the
-    Memory Error when reading large files
+    Loads data by defined absolute path of csv files.
+
+    It may cause the Memory Error when reading large files.
 
     Args:
         messages_filepath: The path of csv file containing twitter messages
@@ -19,6 +20,7 @@ def load_data(messages_filepath, categories_filepath):
     Raises:
         None
     """
+
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages, categories, on="id")
@@ -26,11 +28,11 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
-    """Cleans data stored in pandas dataframe
+    """Cleans data stored in pandas dataframe.
 
     Cleans data provided by [Figure Eight](https://www.figure-eight.com) by
     two parts: first extract 36 targets and convert data type to "int", then
-    drop duplicates
+    drop duplicates.
 
     Args:
         df: The pandas dataframe containing raw data loaded by function
@@ -43,6 +45,7 @@ def clean_data(df):
     Raises:
         None
     """
+
     categories = df["categories"].str.split(";", expand=True)
 
     first_row = categories.loc[0, :]
@@ -63,10 +66,12 @@ def clean_data(df):
 
 
 def save_data(df, database_filepath):
-    """Saves data stored in database file
+    """Saves data stored in database file.
 
     Saves data provided from the pandas dataframe returned by function
-    "clean_data". It may need more time when larger data is stored.
+    "clean_data".
+
+    It may need more time when larger data is stored.
 
     Args:
         df: The pandas dataframe containing both modified features and splitted
@@ -78,17 +83,19 @@ def save_data(df, database_filepath):
     Raises:
         None
     """
+
     engine = sqlalchemy.create_engine("sqlite:///"+database_filepath)
     df.to_sql(database_filepath, engine, index=False)
 
 
 def main():
-    """Packages all functions in this script
+    """Packages all functions in this script.
 
     Packages the above functions into one function for a convenient call to
-    finish the whole data processing. If running input do not satisfy the
-    required formation, a guide will be printed to display the preferred
-    input formation
+    finish the whole data processing.
+
+    If running input do not satisfy the required formation, a guide will be
+    printed to display the preferred input formation.
 
     Args:
         None
@@ -99,6 +106,7 @@ def main():
     Raises:
         None
     """
+
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
