@@ -201,8 +201,11 @@ def tokenize_word(text):
 app = Flask(__name__)
 
 # load data
-engine = create_engine('sqlite:///../data/DisasterResponse2.db')
-df = pd.read_sql_table('DisasterResponse2', engine)
+database_filepath = '../data/DisasterResponse.db'
+database_name = database_filepath.split("/")[-1].split(".")[0]
+
+engine = create_engine('sqlite:///'+database_filepath)
+df = pd.read_sql_table(database_name, engine)
 
 # load model
 model = joblib.load("../models/classifier.pkl")

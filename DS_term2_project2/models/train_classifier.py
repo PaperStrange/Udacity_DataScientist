@@ -134,8 +134,8 @@ def load_data(database_filepath):
     global WEIGHTS_DF
 
     engine = create_engine("sqlite:///" + database_filepath)
-
-    df = pd.read_sql("SELECT * FROM " + database_filepath, engine)
+    database_name = database_filepath.split("/")[-1].split(".")[0]
+    df = pd.read_sql("SELECT * FROM " + database_name, engine)
     X = df["message"]
     Y = df.drop(["id", "message", "original", "genre"], axis=1)
     category_names = list(Y.columns)
@@ -379,7 +379,7 @@ def main():
         print("Please provide the filepath of the disaster messages database "\
               "as the first argument and the filepath of the pickle file to "\
               "save the model to as the second argument. \n\nExample: python "\
-              "train_classifier.py ../data/DisasterResponse.db classifier.pkl")
+              "train_classifier.py ../data/DisasterResponse.db models/classifier.pkl")
 
 
 if __name__ == "__main__":
