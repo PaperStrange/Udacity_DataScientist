@@ -15,81 +15,16 @@ from nltk.tokenize import word_tokenize, sent_tokenize, TweetTokenizer
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import brown
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
-
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.externals import joblib
-
-
-def number_normalizer(tokens):
-    """ Maps all numeric tokens to a placeholder.
-
-    For many applications, tokens that begin with a number are not directly
-    useful, but the fact that such a token exists can be relevant.
-
-    By applying this form of dimensionality reduction, some methods may perform
-    better.
-
-    Args:
-        tokens: The tokens extracted by a "TweetTokenizer" instance
-
-    Returns:
-        A generator object
-
-    Raises:
-        None
-    """
-
-    return ("numberplaceholder" if token[0].isdigit() else token for token in tokens)
-
-
-def load_data(database_filepath):
-    """ Loads data from a databse file.
-
-    Loads data using the pre-stored database file and calculate weights
-    per each data.
-
-    The weight of each data is calculated by two steps: first calculate the
-    proportion of all classes which stored in "genre" column of raw data, then
-    referring to the class that each data is belonged to, feed the weight
-    using the reciprocal of the class proportion.
-
-    Args:
-        database_filepath: The file path of pre-stored database file
-
-    Returns:
-        X: A pandas dataframe containing raw twitter message data
-        Y: A pandas dataframe containing 36 targets
-        category_names: A list containing names of 36 categorical targets
-        respectively
-
-    Raises:
-        None
-    """
-
-    global WEIGHTS_DF
-
-    engine = create_engine("sqlite:///" + database_filepath)
-    df = pd.read_sql("SELECT * FROM " + database_filepath, engine)
-    X = df["message"]
-    Y = df.drop(["id", "message", "original", "genre"], axis=1)
-    category_names = list(Y.columns)
-
-    df_genre = df.loc[:, "genre"]
-    genre_summary = df_genre.value_counts()
-    weights = 1 / (genre_summary / genre_summary.sum())
-    WEIGHTS_DF = pd.Series(np.zeros(df_genre.shape))
-    for ind, each_class in enumerate(genre_summary.index):
-        WEIGHTS_DF[df_genre[df_genre==each_class].index] = weights[ind]
-
-    return X, Y, category_names
 
 
 class StatisticalAnalysis(BaseEstimator, TransformerMixin):
@@ -163,6 +98,71 @@ class BalanceWeight(BaseEstimator, TransformerMixin):
         )
 
         return X_balanced
+
+
+def load_data(database_filepath):
+    """ Loads data from a databse file.
+
+    Loads data using the pre-stored database file and calculate weights
+    per each data.
+
+    The weight of each data is calculated by two steps: first calculate the
+    proportion of all classes which stored in "genre" column of raw data, then
+    referring to the class that each data is belonged to, feed the weight
+    using the reciprocal of the class proportion.
+
+    Args:
+        database_filepath: The file path of pre-stored database file
+
+    Returns:
+        X: A pandas dataframe containing raw twitter message data
+        Y: A pandas dataframe containing 36 targets
+        category_names: A list containing names of 36 categorical targets
+        respectively
+
+    Raises:
+        None
+    """
+
+    global WEIGHTS_DF
+
+    engine = create_engine("sqlite:///" + database_filepath)
+
+    df = pd.read_sql("SELECT * FROM " + database_filepath, engine)
+    X = df["message"]
+    Y = df.drop(["id", "message", "original", "genre"], axis=1)
+    category_names = list(Y.columns)
+
+    df_genre = df.loc[:, "genre"]
+    genre_summary = df_genre.value_counts()
+    weights = 1 / (genre_summary / genre_summary.sum())
+    WEIGHTS_DF = pd.Series(np.zeros(df_genre.shape))
+    for ind, each_class in enumerate(genre_summary.index):
+        WEIGHTS_DF[df_genre[df_genre==each_class].index] = weights[ind]
+
+    return X, Y, category_names
+
+
+def number_normalizer(tokens):
+    """ Maps all numeric tokens to a placeholder.
+
+    For many applications, tokens that begin with a number are not directly
+    useful, but the fact that such a token exists can be relevant.
+
+    By applying this form of dimensionality reduction, some methods may perform
+    better.
+
+    Args:
+        tokens: The tokens extracted by a "TweetTokenizer" instance
+
+    Returns:
+        A generator object
+
+    Raises:
+        None
+    """
+
+    return ("numberplaceholder" if token[0].isdigit() else token for token in tokens)
 
 
 def tokenize_word(text):
