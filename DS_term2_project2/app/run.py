@@ -35,8 +35,8 @@ from sqlalchemy import create_engine
 
 # from ..models.train_classifier import StatisticalAnalysis, BalanceWeight, number_normalizer  # Note 2019/3/13: SystemError occurs when using the below two import:"Parent module '' not loaded, cannot perform relative importl"
 # from ..models.train_classifier import tokenize_word  # Note 2019/3/13: SystemError occurs when using the below two import:"Parent module '' not loaded, cannot perform relative importl"
-from DS_term2_project2.models.train_classifier import StatisticalAnalysis, BalanceWeight, number_normalizer  # Note 2019/3/13: ImportError occur when importing : No module named 'DS_term2_project2'
-from DS_term2_project2.models.train_classifier import tokenize_word  # Note 2019/3/13: ImportError occur when importing : No module named 'DS_term2_project2'
+# from DS_term2_project2.models.train_classifier import StatisticalAnalysis, BalanceWeight, number_normalizer  # Note 2019/3/13: ImportError occur when importing : No module named 'DS_term2_project2'
+# from DS_term2_project2.models.train_classifier import tokenize_word  # Note 2019/3/13: ImportError occur when importing : No module named 'DS_term2_project2'
 
 WEIGHTS_DF = pd.read_csv("../data/weights.csv")
 
