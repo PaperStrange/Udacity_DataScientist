@@ -85,6 +85,10 @@ class BalanceWeight(BaseEstimator, TransformerMixin):
         fit: A function inherited from "TransformerMixin"
         transform: A self-designed function to allocate weight to statistical
         features oriented from the above "StatisticalAnalysis" class
+
+    Raises:
+        KeyError: occurs when using only one row data to classify
+
     """
 
     def fit(self, X, y=None):
@@ -93,11 +97,14 @@ class BalanceWeight(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         """Allocate weight to statistical features"""
-        X_balanced = np.array(
-            [each_row*WEIGHTS_DF[ind] for ind, each_row in enumerate(X.values)]
-        )
-
-        return X_balanced
+        try:
+            X_balanced = np.array(
+                [each_row*WEIGHTS_DF[ind] for ind, each_row in enumerate(X.values)]
+            )
+        except KeyError:
+            return X
+        else:
+            return X_balanced
 
 
 def load_data(database_filepath):
@@ -139,6 +146,7 @@ def load_data(database_filepath):
     WEIGHTS_DF = pd.Series(np.zeros(df_genre.shape))
     for ind, each_class in enumerate(genre_summary.index):
         WEIGHTS_DF[df_genre[df_genre==each_class].index] = weights[ind]
+    WEIGHTS_DF.to_csv("./data/weights.csv", index=None)
 
     return X, Y, category_names
 
