@@ -4,9 +4,9 @@ import sqlalchemy
 
 
 def load_data(messages_filepath, categories_filepath):
-    """Load data from csv files
+    """Loads data from csv files
 
-    Load data by defined absolute path of csv files. It may cause the
+    Loads data by defined absolute path of csv files. It may cause the
     Memory Error when reading large files
 
     Args:
@@ -26,9 +26,9 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
-    """Clean data stored in pandas dataframe
+    """Cleans data stored in pandas dataframe
 
-    Clean data provided by [Figure Eight](https://www.figure-eight.com) by
+    Cleans data provided by [Figure Eight](https://www.figure-eight.com) by
     two parts: first extract 36 targets and convert data type to "int", then
     drop duplicates
 
@@ -63,9 +63,9 @@ def clean_data(df):
 
 
 def save_data(df, database_filepath):
-    """Save data stored in database file
+    """Saves data stored in database file
 
-    Save data provided from the pandas dataframe returned by function
+    Saves data provided from the pandas dataframe returned by function
     "clean_data". It may need more time when larger data is stored.
 
     Args:
@@ -83,9 +83,9 @@ def save_data(df, database_filepath):
 
 
 def main():
-    """Package all functions in this script
+    """Packages all functions in this script
 
-    Package the above functions into one function for a convenient call to
+    Packages the above functions into one function for a convenient call to
     finish the whole data processing. If running input do not satisfy the
     required formation, a guide will be printed to display the preferred
     input formation
