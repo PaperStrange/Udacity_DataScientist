@@ -46,16 +46,16 @@ class StatisticalAnalysis(BaseEstimator, TransformerMixin):
     Evaluates several statistical standards from the matrix of token counts
     provided by an instance such like "CountVectorizer".
 
-    Tries to balance data by expanding more numberical features.
+    Tries to balance data by expanding more numerical features.
 
     Attributes:
         statistics_count: A function calculating the length of the array
         statistics_std: A function calculating the standard deviation of
-        the array
+            the array
         statistics_mean: A function calculating the mean of the array
         fit: A function inherited from "TransformerMixin"
         transform: A self-designed function to finish statistical feature
-        extraction using attribute functions
+            extraction using attribute functions
     """
 
     def statistics_count(self, x_arr):
@@ -155,7 +155,7 @@ def tokenize_word(text):
         text: A row text data
 
     Returns:
-        A numpy array containing clean tokens extracted from text
+        A numpy array containing clean tokens extracted from text, for example:
 
         "Enjoy! 4 beautiful seasons and 3 day night~ @everyone" -->
             ['enjoy',
@@ -216,12 +216,10 @@ model = joblib.load("../models/classifier.pkl")
 def index():
 
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
 
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [

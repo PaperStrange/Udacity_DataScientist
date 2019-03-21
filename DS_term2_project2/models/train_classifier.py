@@ -33,16 +33,16 @@ class StatisticalAnalysis(BaseEstimator, TransformerMixin):
     Evaluates several statistical standards from the matrix of token counts
     provided by an instance such like "CountVectorizer".
 
-    Tries to balance data by expanding more numberical features.
+    Tries to balance data by expanding more numerical features.
 
     Attributes:
         statistics_count: A function calculating the length of the array
         statistics_std: A function calculating the standard deviation of
-        the array
+            the array
         statistics_mean: A function calculating the mean of the array
         fit: A function inherited from "TransformerMixin"
         transform: A self-designed function to finish statistical feature
-        extraction using attribute functions
+            extraction using attribute functions
     """
 
     def statistics_count(self, x_arr):
@@ -84,7 +84,7 @@ class BalanceWeight(BaseEstimator, TransformerMixin):
     Attributes:
         fit: A function inherited from "TransformerMixin"
         transform: A self-designed function to allocate weight to statistical
-        features oriented from the above "StatisticalAnalysis" class
+            features oriented from the above "StatisticalAnalysis" class
 
     Raises:
         KeyError: occurs when using only one row data to classify
@@ -125,7 +125,7 @@ def load_data(database_filepath):
         X: A pandas dataframe containing raw twitter message data
         Y: A pandas dataframe containing 36 targets
         category_names: A list containing names of 36 categorical targets
-        respectively
+            respectively
 
     Raises:
         None
@@ -186,7 +186,7 @@ def tokenize_word(text):
         text: A row text data
 
     Returns:
-        A numpy array containing clean tokens extracted from text
+        A numpy array containing clean tokens extracted from text, for example:
 
         "Enjoy! 4 beautiful seasons and 3 day night~ @everyone" -->
             ['enjoy',
@@ -232,7 +232,7 @@ def tokenize_word(text):
 def build_model():
     """Builds model using sklearn "Pipeline" and "GridSearchCV".
 
-    Bulids model combining sklearn instances and self-designed instances.
+    Builds model combining sklearn instances and self-designed instances.
 
     It may fail when inputting data with improper feature data formation and
     target dimension.
@@ -298,7 +298,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
         X_test: A pandas dataframe containing feature data for testing
         Y_test: A pandas dataframe containing target/category data for testing
         category_names: A list containing names of 36 categorical targets
-        respectively
+            respectively
 
     Returns:
         None
@@ -370,6 +370,7 @@ def main():
         evaluate_model(model, X_test, Y_test, category_names)
 
         print("Saving model...\n    MODEL: {}".format(model_filepath))
+
         # save_model(model, model_filepath)
         save_model(model.best_estimator_, model_filepath)
 

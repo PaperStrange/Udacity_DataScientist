@@ -36,11 +36,11 @@ def clean_data(df):
 
     Args:
         df: The pandas dataframe containing raw data loaded by function
-        "load_data"
+            "load_data"
 
     Returns:
         A pandas dataframe containing both modified features and splitted
-        targets
+            targets
 
     Raises:
         None
@@ -75,7 +75,7 @@ def save_data(df, database_filepath):
 
     Args:
         df: The pandas dataframe containing both modified features and splitted
-        targets
+            targets
 
     Returns:
         None
