@@ -91,25 +91,25 @@ Data are stored in "data" folder. Thoungh data will not be provided here while y
 
 ## Results<a name="results"></a>
 
-<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" align=center />
+<!--<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" align=center />
 
-**<center>Fig1: Web Display</center>**
+**<center>Fig1: Web Display</center>**-->
 
-<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" align=center />
+<!--<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" align=center />
 
-**<center>Fig1: Accuracy</center>**
+**<center>Fig2: Accuracy</center>**-->
 
 The Fig1 is a screenshot of my web app when inputing a message, the Fig2 is the accuracy of my model on each label. Main findings of the code are listed to reply the above six questions respectively and will be posted in my blog [here](https://PaperStrange.github.io/) later.
 
 ##### A1<a name="Q1"></a>
 
-<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" align=center />
+<!--<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" align=center />
 
-**<center>Fig3: amount distribution of label "offer"</center>**
+**<center>Fig3: amount distribution of label "offer"</center>**-->
 
-<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" align=center />
+<!--<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" align=center />
 
-**<center>Fig4: several scores of label "offer"</center>**
+**<center>Fig4: several scores of label "offer"</center>**-->
 
 From the Fig3, it easy to see the data distribution of "offer" label. This label have little amount of data in class "1" while large amount of data in class "0". These imbalance distributions truly bring precision nearly 100% but lead to an obvious differences in recall score shown in Fig4 (The recall score in one class will be much less than the other class). Thus, the trained model has a great chance to develop a strong dependent on one class and ignorance on the other class and generalize badly in the future.
 
