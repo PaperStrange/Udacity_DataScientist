@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.idea/
+DS_term2_project1/data/data_raw/
+DS_term2_project2/data/DisasterResponse2.db
+DS_term2_project2/models/classifier.pkl
