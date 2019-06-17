@@ -19,23 +19,23 @@ After above installation, the code should run with no issues.
 
 ## Project Motivation<a name="motivation"></a>
 
-For this project, I was interested in ... to better understand the below several questions:
+In this project, I was interested in how to analyze demographics data for customers of a mail-order sales company in Germany, comparing it against demographics information for the general population as it is suggested by Udacity course. To help understand the motivation better, several questions are listed below:
 
-1. 
+* For Business Understanding
+1. Before model is applied, how to design an online experiment to show its effectiveness?
+2. If model is applied and operates normally, how to quantify and evaluate the net income from model?
+3. After model operates for a long time, how to deal with the differences between the model predictions and reviews by customers?
 
-2. 
-
-3. 
-
-4. 
-
-5. 
+* For Data Understanding
+1. Does model is capable of dealing with big data?
+2. Does model is capable of dealing with imbalanced data?
+3. Does model is capable of dealing with small sample data?
 
 ## File Descriptions <a name="files"></a>
 
-<!--There is 1 notebook available here to showcase work related to the above questions which is exploratory in following procedures of `CRISP-DM process` to the questions showcased by this notebook title. Markdown cells were used to assist in walking through the thought process for individual steps.-->
+There is 1 notebook available here to showcase work related to the above questions and correlated answers. Markdown cells were used to assist in walking through the thought process for individual steps.
 
-<!--Data are stored in "data" folder while some data files such as merchant data, transaction data are too large to upload. However all data are available for freely download in the competition page. Except for training and testing data stored respectively in "train" and "test" folder, a `.xlsx` file is provided for storing authority descriptions of all data files.-->
+No data are stored to obey the use rulers.
 
 ## Results<a name="results"></a>
 
