@@ -27,9 +27,9 @@ In this project, I was interested in how to analyze demographics data for custom
 3. After model operates for a long time, how to deal with the differences between the model predictions and reviews by customers?
 
 * For Data Understanding
-1. Does model is capable of dealing with big data?
-2. Does model is capable of dealing with imbalanced data?
-3. Does model is capable of dealing with small sample data?
+1. How "big" is the datasets?
+2. How imbalanced is the datasets?
+3. How to deal with small sample data?
 
 ## File Descriptions <a name="files"></a>
 
