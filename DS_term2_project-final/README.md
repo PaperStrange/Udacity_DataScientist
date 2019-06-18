@@ -35,7 +35,7 @@ In this project, I was interested in how to analyze demographics data for custom
 
 There is 1 notebook available here to showcase work related to the above questions and correlated answers. Markdown cells were used to assist in walking through the thought process for individual steps.
 
-No data are stored to obey the use rulers.
+No raw data are stored to obey the use rulers. A submission sample csv file is kept here for convenient submission to relative kaggle competition [here](https://www.kaggle.com/c/udacity-arvato-identify-customers).
 
 ## Results<a name="results"></a>
 
