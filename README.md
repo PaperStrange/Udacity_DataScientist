@@ -22,7 +22,7 @@ Master branch mianly includes the general descriptions of this project.
 
 ## Instruction to use<a name="instructions"></a>
 
-Feel free to donload and run in your local machine! If there is any advice or bug, please create a new issue or contact me by the e-mail [here](ziqianghuang@hust.edu.cn) 
+Feel free to download and run in your local machine! If there is any advice or bug, please create a new issue or contact me by the e-mail [here](ziqianghuang@hust.edu.cn) 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
 This repository is distributed under the GNU license.
