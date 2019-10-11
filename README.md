@@ -12,17 +12,18 @@ For more details, please refer to other branchs which are representations of eac
 
 ## Project Motivation<a name="motivation"></a>
 
-This repository is a recorder for learning notes, homework and so on for any Udacity lessons i've learned so far.
+This repository is a recorder for learning notes, homework of Udacity *NanoDegree program - Data Scientist* that i've learned so far.
 
 ## Branch Descriptions <a name="branch"></a>
 
-Master branch mianly includes the general descriptions of this project.
+Master branch includes the general descriptions of this project.
 
-"develop" branch is expected to keeps the changes that haven't been checked and reviewed, including the change for better readability, the change for better visualization. The branch containing formal records for each Udacity program is commonly named by "Var1_termVar2", among which Var1 is the abbreviation name of Udacity program and Var2 indicates the specific term of this program. 
+Branches that contain formal records for each Udacity project are commonly named by "X_termY", in which X is the abbreviation format of this Udacity program while Y represents the specific term of this program. Other branchs which not follow the name format are expected to keeps the changes that haven't been checked and reviewed, including the change for better readability, the change for better visualization and so on. 
 
 ## Instruction to use<a name="instructions"></a>
 
-Feel free to download and run in your local machine! If there is any advice or bug, please create a new issue or contact me by the e-mail [here](ziqianghuang@hust.edu.cn) 
+Feel free to download and run in your local machine! If there is any advice or bug, please create a new issue or contact me by the e-mail [here](ziqianghuang@hust.edu.cn)
+
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
 This repository is distributed under the GNU license.
