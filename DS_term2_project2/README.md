@@ -93,11 +93,14 @@ Data are stored in "data" folder. Thoungh data will not be provided here while y
 
 <div align=center>
 	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" />
+	<br>
 	<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig1(left): Web display when input a message; Fig2(right): Model accuracy on each label</center>
 </div>
 <br>
+<br>
 <div align=center>
 	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" />
+	<br>
 	<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig3(left): Data distribution of label "offer"; Fig4(right): Model evaluation scores on label "offer"</center>
 </div>
 
