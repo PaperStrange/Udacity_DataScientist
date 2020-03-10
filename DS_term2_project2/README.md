@@ -92,11 +92,13 @@ Data are stored in "data" folder. Thoungh data will not be provided here while y
 ## Results<a name="results"></a>
 
 <div align=center>
-	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" /><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig1(left): Web display when input a message; Fig2(right): Model accuracy on each label</center>
+	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" />
+	<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig1(left): Web display when input a message; Fig2(right): Model accuracy on each label</center>
 </div>
 <br>
 <div align=center>
-	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" /><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig3(left): Data distribution of label "offer"; Fig4(right): Model evaluation scores on label "offer"</center>
+	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" />
+	<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig3(left): Data distribution of label "offer"; Fig4(right): Model evaluation scores on label "offer"</center>
 </div>
 
 The Fig1 is a screenshot of my web app when inputing a message, the Fig2 is the accuracy of my model on each label. Main findings of the code are listed to reply the above six questions respectively and will be posted in my blog [here](https://PaperStrange.github.io/) later.
