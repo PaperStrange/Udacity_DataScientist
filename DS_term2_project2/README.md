@@ -32,22 +32,22 @@ After above installation, the code should run with no issues.
 
 For this project, the below several questions are expected to be dived into:
 
-##### [Q1 (tag: Tech)](#Q1)
+##### [Question 1 (tag: Tech)](#Q1)
 How to deal with the imbalanced data for some labels? How that affects training the model, and your thoughts about emphasizing precision or recall for the various categories.
 
-##### [Q2 (tag: Tech)](#Q2)
+##### [Question 2 (tag: Tech)](#Q2)
 How to improve the efficiency of the code in the ETL and ML pipeline?
 
-##### [Q3 (tag: Tech)](#Q3)
+##### [Question 3 (tag: Tech)](#Q3)
 How to measure the ability of model generalization?
 
-##### [Q4 (tag: Business)](#Q4)
+##### [Question 4 (tag: Business)](#Q4)
 If applied, what is needed to make sure the normal operation of this model? How to evaluate the cost of potential necessary changes occurred in company like staff structure, financial?
 
-##### [Q5 (tag: Business)](#Q5)
+##### [Question 5 (tag: Business)](#Q5)
 Based on the categories that the ML algorithm classifies text into, how to advise some organizations to connect to?
 
-##### [Q6 (tag: Business)](#Q6)
+##### [Question 6 (tag: Business)](#Q6)
 Assume all deploy is done, when tracing the data transportation map(like from client to host, from host to company staff), how to find out the most time-consuming transportation line and optimize?
 
 ## File Descriptions <a name="files"></a>
@@ -91,40 +91,36 @@ Data are stored in "data" folder. Thoungh data will not be provided here while y
 
 ## Results<a name="results"></a>
 
-<div align=center><img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" />
-<div align=center>Fig1: Web display when input a message
-
-<div align=center><img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" />
-<div align=center>Fig2: Model accuracy on each label
-
-<div align=center><img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" />
-<div align=center>Fig3: Data distribution of label "offer"
-
-<div align=center><img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" />
-<div align=center>Fig4: Model evaluation scores on label "offer"
+<div align=center>
+	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/WebDisplay.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/model_acc.png" width = "300" /><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig1(left): Web display when input a message; Fig2(right): Model accuracy on each label</center>
+</div>
+<br>
+<div align=center>
+	<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_1.png" width = "300" />&nbsp&nbsp&nbsp<img src="https://raw.githubusercontent.com/PaperStrange/Udacity_records/DS_term2/DS_term2_project2/graphs/A1_2.png" width = "300" /><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Fig3(left): Data distribution of label "offer"; Fig4(right): Model evaluation scores on label "offer"</center>
+</div>
 
 The Fig1 is a screenshot of my web app when inputing a message, the Fig2 is the accuracy of my model on each label. Main findings of the code are listed to reply the above six questions respectively and will be posted in my blog [here](https://PaperStrange.github.io/) later.
 
-##### A1<a name="Q1"></a>
+##### Answer 1<a name="Q1"></a>
 
 From the Fig3, it easy to see the data distribution of "offer" label. This label have little amount of data in class "1" while large amount of data in class "0". These imbalance distributions truly bring precision nearly 100% but lead to an obvious differences in recall score shown in Fig4 (The recall score in one class will be much less than the other class). Thus, the trained model has a great chance to develop a strong dependent on one class and ignorance on the other class and generalize badly in the future.
 
 The three well-know methods to deal with the imbalanced includes under-sampling, over-sampling, and generating synthetic data. Because the relative small amount of data(26216), undersampling may lead to information leak and oversampling may lead to too much noise. Generating synthetic data is not not so suitable because of the data origin: twitter message, which means synthetic data is not so easy to be generated and evaluated. As a result, for this case, i think, expanding features by adding statistical standards for the matrix of token counts (using class named as "StatisticalAnalysis" in "train_classifier.py") is preferable to balance data to some extent.
 
-##### A2<a name="Q2"></a>
+##### Answer 2<a name="Q2"></a>
 Cause not so familiar with sklearn Pipeline, i refer to the help of google. One interesting solution is a blog introducing a new pipeline imported from dasklearn. The accelerate result as ten times faster is really considerable. However, the author said it is a trade-off: less computation is needed while exposing a parallel map are no longer sufficient for the training. More details are listed in his blog [here](http://blaze.pydata.org/blog/2015/10/19/dask-learn/).
 
-##### A3<a name="Q3"></a>
+##### Answer 3<a name="Q3"></a>
 In my opinion, for each label, the less difference between recall scores of classes, the less bias will be induced to the model prediction of this label, which means better generalization ability(PS: if less sensitive to complexity of evaluation, confusion matrix  or self-designed loss function may be more suitable). Another  possible metrics, i think, is using auc score to measure the separability between training dataset and testing dataset. More details could refer a blog [here](https://towardsdatascience.com/understan).
 
-##### A4<a name="Q4"></a>
+##### Answer 4<a name="Q4"></a>
 To assure convincible deploy, for technology, logging and test codes are supposed to be maintained regularly; for other non-technical staff, a instruction list including rules of model input data type, model output data type, issues and relative solutions etc is preferable(inspired by [*Work Rules! Insights from Inside Google That Will Transform How You Live and Lead*](https://www.amazon.com/Work-Rules-Insights-Inside-Transform-ebook/dp/B00MEMMVB8)). As for the cost evaluation, i think, could be derived from each cost analysis provided by associated department by sum or apply weight to highlight some costs.
 
-##### A5<a name="Q5"></a>
-Excepy for disaster agency of each government, there are several civil self-organization 
+##### Answer 5<a name="Q5"></a>
+Except for disaster agency of each government, there are several civil self-organization 
 agencies more than the well-known Read Cross. More descriptions could refer to this blog [here](https://www.thoughtco.com/top-disaster-relief-organizations-701272). 
 
-##### A6<a name="Q6"></a>
+##### Answer 6<a name="Q6"></a>
 Data transportation could be divided by three nexus nodes: client/customer(use mobile, laptop etc.), host(cloud or real database part, model part, message part etc.) and developer(laptop). Easy to find that the most large loads are more likely to happen when too often instant messaging occurs between millions clients and host. As a result, a strong database, i think, is in larger demand and importance than a robust model.
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
